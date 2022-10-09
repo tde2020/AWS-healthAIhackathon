@@ -47,7 +47,6 @@ In another browser window or tab, login to your AWS account. Once you have done 
 
 Select `Upload a template`,  click `Choose file` and select the cloudformation template file you've just downloaded and then click `Next`.
 
-![CloudformationWizard1](static/images/step3.png)
 
 4. Specify stack details
 
