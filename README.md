@@ -33,7 +33,7 @@ Deploy a Cloudformation template that will perform most of the initial setup.
 
 1. Download the cloudformation template
 
-Go to https://github.com/tde2020/AWS-healthhackathon/master/aws-healthaihackathon.yaml, right click 'Save As' and download the cloudformation template.
+Go to https://github.com/tde2020/AWS-healthAIhackathon/blob/main/aws-healthaihackathon.yaml, right click 'Save As' and download the cloudformation template.
 
 **Note** Make sure you save the file as a .yaml file.
 
