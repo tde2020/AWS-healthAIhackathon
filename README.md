@@ -1,7 +1,5 @@
 # AWS-healthAIhackathon
-AWS Health AI Hackathon 2022
-
-# AWS ML Health Hackathon 2022 - ML classification model to support health recommendations
+AWS Health AI Hackathon 2022 - ML classification model to support health recommendations
 
 ## Inspiration: 
 Following up daily on how my father's Parkinson evolved over the last decade and how it impacted his day to day life was something that lead me to think of what AI could do to support health care industry. There are tremendous amount of digital data about patients conditions, medications and how the conditions evolve and there are many people who would go through similar situations and if that can be found it might be able to help another patient. 
