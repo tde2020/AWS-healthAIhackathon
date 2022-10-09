@@ -25,7 +25,7 @@ The user input is assumed to be uploaded on a web portal, which is then saved as
 - [Sagemaker](https://aws.amazon.com/sagemaker/): Train the model using linear learner 
 - [S3](https://aws.amazon.com/s3/): Store the data and the model
 
-## Implementation and try out for yourself!
+## Implementation and try out!
 
 ## Deploy the Working Environment
 
