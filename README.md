@@ -37,11 +37,11 @@ The Comprehend medical extracted keywords is filtered to match the feature set u
 - [S3](https://aws.amazon.com/s3/): Store the data and the model
 
 ## Challenges
-Dataset limitations. I have used the MTSamples for training the model. Each category had between 200-400 samples and I have randomly picked 200 samples from each category.
-I believe the predictions would be accurate if the dataset included  patient demographic data and health history, however there is no such dataset available. 
+Dataset limitations: I have used the MTSamples for training the model. I have picked 6 medical specialities having 200-400 samples, and then randomly picked 200 samples from each category for the dataset.
+I believe the predictions would be more accurate if the dataset included  patient demographic data and health history, however I was not able to find such a public dataset. 
 
 ## Accomplishments
-With the limited dataset and identified few categories we have achieved an overall model accuracy of 55% while having the highest individual category accuracy at 68%. (you can download the html files in the screenshots folder that will show the full run of the two python notebooks)
+With the limited dataset and identified few categories we have achieved an overall model accuracy of 0.55. while having the highest individual category accuracy at 0.68. (you can download the html files in the screenshots folder that will show the full run of the two python notebooks)
 
 ## Implementation and try out!
 
