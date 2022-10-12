@@ -8,16 +8,26 @@ how the conditions evolve, and there are many people who would go through simila
 During the cause I have searched about illnesses, symptoms, health conditions, nutrition, exercises related information on the internet, and I am sure many of you might have done that to help someone you love or for you. There are many digital resources available that can be used to create a knowledge base and use machine learning to learn from previous cases to help people with similar conditions.
 
 ## What it does: 
-User can input information about health conditions, symptoms, prescriptions in a medical report to identify the health condition. The user input is run through the machine learning (ML) model which gives back the health classification that can be used to provide health recommendations on health professionals contacts, possible nutrition, exercises, therapies etc where health services can provide information to the user.
+The project is aimed to solve the following scenario.  The user can input information about health conditions, symptoms, prescriptions in a medical report given as web form input (this then need to be saved as a pdf file) or as an uploaded pdf file in order to identify the health condition. This electronic medical record(EMR) will be run against Comprehend Medical to extract medical keywords from the EMR which will be run through the machine learning (ML) model to identify the health classification. This classification and features can be used to provide recommendations on health professionals contacts, possible nutrition, exercises, therapies etc by health service providers.
+
+The demonstrated implementation has trained a model for health record classification so that the medical report given from the user input can be classified to the health speciality which can be used to provide health recommendations.  
 
 ## How it is built: 
-The user input is assumed to be uploaded on a web portal, which is then saved as a pdf file. This pdf file is passed through Comprehend Medical to identify the medical domain information in the text. I have trained the ML model with MTSamples(https://mtsamples.com/) transcription data related to some medical domains. Output of medical comprehend identified keywords are run against the trained ML classification model to identify the health domain & probability. The classification can be used by health care services to provide information and service recommendations.
+Data:
+I have used MTSamples transcription data related to six medical domains that has more than 200 samples each to train the model. I have omitted surgery and consultation categories as they are generic health domains though they have the highest number of samples. 
 
-## Technical implementation
+Programe:
+The ML model implementation has two parts.
 1) Batch processing of medical text using Amazon Comprehend Medical: [HHBatchDataProcessing.ipynb](./HHBatchDataProcessing.ipynb)
-!!! This code will query Comprehend Medical to extract medical related information of the text in the dataset and will cost around $100 to pass all records, therefore if you want to just test output reduce the calls!!! The processed file is saved under the data folder. 
+This code will extract mtsamples data and query Comprehend Medical to extract medical related information in the text. This extracted data is then saved as a csv file to be used in the model training. (note: The comprehend medical usage in this notebook costs around $100 to pass all records! Therefore if you want to test I suggest that you may want to reduce the queries.)
 
-2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb](./HHModelDeployment.ipynb)
+
+2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb](./HHModelDeployment.ipynb) I am using the linear learner multi class classification to train the model.
+
+Inference:
+I have used two use cases to demonstrate predictions from the model. One medical report in English language and the second in German language. The English language report can be passed directly to Comprehend medical to extract keywords, however the German language one need to be translated to English before passing to Comprehend medical.
+
+The Comprehend medical extracted keywords is filtered to match the feature set used for prediction. Finally the prediction is done using the trained model and the saved endpoint.
 
 ## Used AWS services
 - [Textract](https://aws.amazon.com/textract/): To extract text from the PDF medical report
@@ -25,6 +35,13 @@ The user input is assumed to be uploaded on a web portal, which is then saved as
 - [Comprehend Medical](https://aws.amazon.com/comprehend/medical/): To process medical-domain information from the output of Textract.
 - [Sagemaker](https://aws.amazon.com/sagemaker/): Train the model using linear learner 
 - [S3](https://aws.amazon.com/s3/): Store the data and the model
+
+## Challenges
+Dataset limitations. I have used the MTSamples for training the model. Each category had between 200-400 samples and I have randomly picked 200 samples from each category.
+I believe the predictions would be accurate if the dataset included  patient demographic data and health history, however there is no such dataset available. 
+
+## Accomplishments
+With the limited dataset and identified few categories we have achieved an overall model accuracy of 55% while having the highest individual category accuracy at 68%. (you can download the html files in the screenshots folder that will show the full run of the two python notebooks)
 
 ## Implementation and try out!
 
