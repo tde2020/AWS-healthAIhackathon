@@ -15,9 +15,9 @@ The user input is assumed to be uploaded on a web portal, which is then saved as
 
 ## Technical implementation
 1) Batch processing of medical text using Amazon Comprehend Medical: [HHBatchDataProcessing.ipynb](./HHBatchDataProcessing.ipynb)
-!!! This code will query Comprehend Medical to extract medical related information of the text in the dataset and will cost around $100 to pass all records, therefore do not run the code without modifications to reduce the calls !!! The processed file is saved under the data folder. 
+!!! This code will query Comprehend Medical to extract medical related information of the text in the dataset and will cost around $100 to pass all records, therefore if you want to just test output reduce the calls!!! The processed file is saved under the data folder. 
 
-2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb] (./HHModelDeployment.ipynb)
+2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb](./HHModelDeployment.ipynb)
 
 ## Used AWS services
 - [Textract](https://aws.amazon.com/textract/): To extract text from the PDF medical report
