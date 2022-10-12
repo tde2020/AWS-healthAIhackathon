@@ -3,9 +3,9 @@ AWS Health AI Hackathon 2022 - ML classification model to support health recomme
 
 ## Inspiration: 
 Following up daily on how my father's Parkinson evolved over the last decade and how it impacted his day-to-day life was something that lead me to think of what AI could do to support health care industry. There is a tremendous amount of digital data about patients' conditions, medications and 
-how the conditions evolve and there are many people who would go through similar situations and if such information can be found it might be able to help another patient. 
+how the conditions evolve, and there are many people who would go through similar situations and if such information can be found it might be able to help another patient. 
 
-During the cause I have searched about illnesses, symptoms, health conditions, nutrition, exercises related information on the internet, and I am sure many of you might have done that to help someone you love or for you. There are many digital resources available that can be used to create a knowledge base and use machine learning to gather the knowledge from previous cases to help people with similar conditions.
+During the cause I have searched about illnesses, symptoms, health conditions, nutrition, exercises related information on the internet, and I am sure many of you might have done that to help someone you love or for you. There are many digital resources available that can be used to create a knowledge base and use machine learning to learn from previous cases to help people with similar conditions.
 
 ## What it does: 
 User can input information about health conditions, symptoms, prescriptions in a medical report to identify the health condition. The user input is run through the machine learning (ML) model which gives back the health classification that can be used to provide health recommendations on health professionals contacts, possible nutrition, exercises, therapies etc where health services can provide information to the user.
@@ -66,7 +66,7 @@ All of the defaults in this section will be sufficient to try out this setup. If
 Finally, in the next section, scroll to the bottom of the page and check the checkbox to enable the template to create IAM resources and click the `Create stack` button.
 
 
-It will take a few minutes to provision the resources required for the lab. Once it is completed, navigate to the `SageMaker` service by clicking `Services` in tht top of the console and then search for `SageMaker` and click on the service.
+It will take a few minutes to provision the resources required for the lab. Once it is completed, navigate to the `SageMaker` service by clicking `Services` in the top of the console and then search for `SageMaker` and click on the service.
 
 
 6. Launch the SageMaker notebook
