@@ -19,17 +19,17 @@ I have used MTSamples transcription data related to six medical domains that has
 **Technical Implementation:**
 The ML model implementation has two parts.
 1) Batch processing of medical text using Amazon Comprehend Medical: [HHBatchDataProcessing.ipynb](./HHBatchDataProcessing.ipynb)
-This code will read mtsamples data and query Comprehend Medical to extract medical related information in the text. This extracted data is then saved as a csv file to be used in the model training. (note: The comprehend medical usage in this notebook costs around $100 to pass all records! Therefore if you want to test I suggest that you may want to reduce the queries.)
+This code will read mtsamples data and query Comprehend Medical to extract medical related information in the text of the randomly chosen records from the selected categories. This extracted data is then saved as a csv file to be used in the model training. (note: The comprehend medical usage in this notebook costs around $100 to pass all records! Therefore if you want to test I suggest that you may want to reduce the queries.)
 
 
 2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb](./HHModelDeployment.ipynb) I am using the linear learner multi class classification to train the model.
 
 **Inference:**
-There are 2 inference use cases tested.
+The following 2 inference use cases were tested.
 1. Medical report in English language: This can be passed directly to Comprehend medical to extract keywords.
 2. Medical report in German language. This need to be translated to English before passing to Comprehend medical.
 
-The Comprehend medical extracted keywords is filtered to match the feature set used for training. Finally the prediction is done using the trained model and the saved endpoint.
+The Comprehend medical extracted keywords are filtered to match the feature set used for training. Finally the prediction is done using the trained model and the saved endpoint.
 
 ## Used AWS services
 - [Textract](https://aws.amazon.com/textract/): To extract text from the PDF medical report
