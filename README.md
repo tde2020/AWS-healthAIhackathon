@@ -3,20 +3,20 @@ AWS Health AI Hackathon 2022 - ML classification model to support health recomme
 
 ## Inspiration: 
 Following up daily on how my father's Parkinson evolved over the last decade and how it impacted his day-to-day life was something that lead me to think of what AI could do to support health care industry. There is a tremendous amount of digital data about patients' conditions, medications and 
-how the conditions evolve, and there are many people who would go through similar situations and if such information can be found it might be able to help another patient. 
+how the conditions evolve. There are many people who would go through similar situations and if such information can be found it might be able to help another patient. 
 
 During the cause I have searched about illnesses, symptoms, health conditions, nutrition, exercises related information on the internet, and I am sure many of you might have done that to help someone you love or for you. There are many digital resources available that can be used to create a knowledge base and use machine learning to learn from previous cases to help people with similar conditions.
 
 ## What it does: 
 The project is aimed to solve the following scenario.  The user can input information about health conditions, symptoms, prescriptions in a medical report given as web form input (this then need to be saved as a pdf file) or as an uploaded pdf file in order to identify the health condition. This electronic medical record(EMR) will be run against Comprehend Medical to extract medical keywords from the EMR which will be run through the machine learning (ML) model to identify the health classification. This classification and features can be used to provide recommendations on health professionals contacts, possible nutrition, exercises, therapies etc by health service providers.
 
-The demonstrated implementation has trained a model for health record classification so that the medical report given from the user input can be classified to the health speciality which can be used to provide health recommendations.  
+The demonstrated implementation has trained a model for health record classification so that the medical report given from the user input can be classified to identify the health speciality which can be used to provide health recommendations.  
 
 ## How it is built: 
-Data:
+**Data:**
 I have used MTSamples transcription data related to six medical domains that has more than 200 samples each to train the model. I have omitted surgery and consultation categories as they are generic health domains though they have the highest number of samples. 
 
-Programe:
+**Technical Implementation:**
 The ML model implementation has two parts.
 1) Batch processing of medical text using Amazon Comprehend Medical: [HHBatchDataProcessing.ipynb](./HHBatchDataProcessing.ipynb)
 This code will read mtsamples data and query Comprehend Medical to extract medical related information in the text. This extracted data is then saved as a csv file to be used in the model training. (note: The comprehend medical usage in this notebook costs around $100 to pass all records! Therefore if you want to test I suggest that you may want to reduce the queries.)
@@ -24,7 +24,7 @@ This code will read mtsamples data and query Comprehend Medical to extract medic
 
 2) Build, train and deploy a classification machine learning model with medical data extracted from the medical documents.: [HHModelDeployment.ipynb](./HHModelDeployment.ipynb) I am using the linear learner multi class classification to train the model.
 
-Inference:
+**Inference:**
 There are 2 inference use cases tested.
 1. Medical report in English language: This can be passed directly to Comprehend medical to extract keywords.
 2. Medical report in German language. This need to be translated to English before passing to Comprehend medical.
