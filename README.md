@@ -45,6 +45,9 @@ I believe the predictions would be more accurate if the dataset included  patien
 ## Accomplishments
 With the limited dataset and identified few categories we have achieved an overall model accuracy of 0.55 while having the highest individual category accuracy at 0.68. (you can download the html files in the screenshots folder that will show the full run of the two python notebooks)
 
+## Short intro video
+https://youtu.be/UDHtYGqE4ik
+
 ## Implementation and try out!
 
 ## Deploy the Working Environment
